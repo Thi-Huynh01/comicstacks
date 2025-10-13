@@ -1,1 +1,2 @@
-Letterboxd, but for comic boooks
+# comicstacks
+letterboxd, but for comics
