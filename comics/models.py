@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 #from users.models import Review
 
 # Create your models here.
@@ -33,5 +34,19 @@ class Comic(models.Model):
     #review = models.ForeignKey(Review, on_delete=models.SET_NULL, null= True, related_name='comics')
     issue_no = models.IntegerField()
     release_date = models.DateField(null=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(f"{self.title}-{self.issue_no}")
+            slug = base_slug
+            counter = 1
+
+            while Comic.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.title} (Issue {self.issue_no})"

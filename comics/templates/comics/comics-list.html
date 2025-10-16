@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Stack</title>
+</head>
+<body>
+    <h1>Our Stack</h1>
+
+    {% if comics %}
+        <ul>
+            {% for comic in comics %}
+                <li>
+                    <strong>{{ comic.title }}</strong> #{{ comic.issue_no }}
+                    by {{ comic.author.name }} ({{ comic.publisher.name }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No comics found.</p>
+    {% endif %}
+</body>
+</html>
