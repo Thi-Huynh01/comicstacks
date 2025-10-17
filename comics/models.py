@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.db.models import CompositePrimaryKey
 #from users.models import Review
 
 # Create your models here.
@@ -35,6 +36,12 @@ class Comic(models.Model):
     issue_no = models.IntegerField()
     release_date = models.DateField(null=True, blank=True)
     slug = models.SlugField(unique=True, blank=True)
+
+    #pk = CompositePrimaryKey("title","issue_no")
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['title', 'issue_no'], name='unique_title_issue-no')
+        ]
 
     def save(self, *args, **kwargs):
         if not self.slug:

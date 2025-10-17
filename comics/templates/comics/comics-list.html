@@ -10,13 +10,21 @@
         <ul>
             {% for comic in comics %}
                 <li>
+                    <a href= {{ comic.slug }}>
                     <strong>{{ comic.title }}</strong> #{{ comic.issue_no }}
                     by {{ comic.author.name }} ({{ comic.publisher.name }})
+                    </a>
                 </li>
             {% endfor %}
         </ul>
     {% else %}
         <p>No comics found.</p>
     {% endif %}
+
+    <h3>
+        <a href="/comics">
+            Back
+        </a>
+    </h3>
 </body>
 </html>

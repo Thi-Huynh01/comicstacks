@@ -1,1 +1,9 @@
-<h1>comic_detail.html</h1>
+<title> {{ comic.title }} Issue # {{ comic.issue_no }} 
+</title>
+<h1>{{ comic.title }} Issue # {{ comic.issue_no }} by {{ comic.author }} ({{ comic.publisher}})</h1>
+<h2>{{ comic.release_date }}</h2>
+<h3>
+    <a href="/comics/our-stack">
+        Back
+    </a>
+</h3>
