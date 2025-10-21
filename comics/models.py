@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from django.db.models import CompositePrimaryKey
+#from django.db.models import CompositePrimaryKey
 #from users.models import Review
 
 # Create your models here.
@@ -19,7 +19,7 @@ class Publisher(models.Model):
 # TODO: implement top works by this author
 
 class Author(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)
     desc = models.TextField()
     #other_works =
 
@@ -30,8 +30,8 @@ class Author(models.Model):
 # Comics table
 class Comic(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, related_name='comics')
-    publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null= True, related_name='comics')
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, related_name='comics_author')
+    publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null= True, related_name='comics_publisher')
     #review = models.ForeignKey(Review, on_delete=models.SET_NULL, null= True, related_name='comics')
     issue_no = models.IntegerField()
     release_date = models.DateField(null=True, blank=True)

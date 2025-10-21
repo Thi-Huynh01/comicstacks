@@ -4,6 +4,7 @@ from .models import Comic
 
 # Create your views here.
 
+# individual comic pages
 def comic_detail(request, slug):
     comic = get_object_or_404(Comic, slug=slug)
     return render(request, 'comics/comics-detail.html',{'comic':comic})
@@ -13,5 +14,6 @@ def comics_list(request):
     comics = Comic.objects.all().order_by('-release_date')
     return render(request, 'comics/comics-list.html', {'comics':comics})
 
+# landing page for comics tab
 def comics_home(request):
     return render(request, 'comics/comics-home.html')
