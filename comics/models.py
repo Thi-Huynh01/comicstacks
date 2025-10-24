@@ -8,7 +8,7 @@ from django.utils.text import slugify
 # Publishers - DC, Marvel, Image, Darkhorse, etc
 
 class Publisher(models.Model):
-    name = models.CharField(max_length=200,primary_key=True)
+    name = models.CharField(max_length=200)
     desc = models.TextField()
     #top_rated_comics = 
 
