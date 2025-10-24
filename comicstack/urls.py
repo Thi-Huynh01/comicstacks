@@ -20,7 +20,7 @@ from django.urls import path, include
 
 # Landing Page
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'base.html')
 
 # URLs from other apps
 urlpatterns = [

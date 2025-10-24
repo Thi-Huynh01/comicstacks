@@ -23,13 +23,13 @@ AUTH_USER_MODEL = 'users.Profile'
 # Load .env in development
 load_dotenv()
 COMICVINE_API_KEY = os.getenv("COMICVINE_API_KEY")
-
+COMICVINE_USER = os.getenv("COMICVINE_USER")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=)n1ok$vcv0q)-tzj9ik+(!qr2gsb-vkq-tod6ae_&qwp*2%-c'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

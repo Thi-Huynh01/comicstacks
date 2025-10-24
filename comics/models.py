@@ -8,7 +8,7 @@ from django.utils.text import slugify
 # Publishers - DC, Marvel, Image, Darkhorse, etc
 
 class Publisher(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200,primary_key=True)
     desc = models.TextField()
     #top_rated_comics = 
 
@@ -20,7 +20,7 @@ class Publisher(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=100, primary_key=True)
-    desc = models.TextField()
+    desc = models.TextField(null=True, blank=True)
     #other_works =
 
     def __str__(self):
@@ -35,6 +35,7 @@ class Comic(models.Model):
     #review = models.ForeignKey(Review, on_delete=models.SET_NULL, null= True, related_name='comics')
     issue_no = models.IntegerField()
     release_date = models.DateField(null=True, blank=True)
+    cover_image = models.URLField(max_length=200, blank=True,null=True)
     slug = models.SlugField(unique=True, blank=True)
 
     #pk = CompositePrimaryKey("title","issue_no")

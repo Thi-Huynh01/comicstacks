@@ -1,9 +1,17 @@
-<title> {{ comic.title }} Issue # {{ comic.issue_no }} 
-</title>
+ {% extends "base.html" %}
+
+<title> {{ comic.title }} Issue # {{ comic.issue_no }} </title>
+
+{% block title %}{{ comic.title }}{% endblock %}
+
+{% block content %}
 <h1>{{ comic.title }} Issue # {{ comic.issue_no }} by {{ comic.author }} ({{ comic.publisher}})</h1>
 <h2>{{ comic.release_date }}</h2>
+
 <h3>
-    <a href="/comics/our-stack">
+    <a href="/comics/our-stack/">
         Back
     </a>
 </h3>
+
+{% endblock %}
