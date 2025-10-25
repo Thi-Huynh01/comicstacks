@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom"
 function ComicsList() {
     const [comics, setComics] = useState([]);
 
@@ -17,8 +17,9 @@ function ComicsList() {
             </h1>
             <ul>
                 {comics.map((comic) => (
-                    <li key={comic.id}>{comic.title}</li>
-            
+                    <li key={comic.id}>
+                    <Link to={`/comics/${comic.slug}`}>{comic.title}</Link>
+                    </li>
             ))}
             </ul>
         </div>

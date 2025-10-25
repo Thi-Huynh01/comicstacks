@@ -23,3 +23,4 @@ def comics_home(request):
 class ComicViewSet(viewsets.ModelViewSet):
     queryset = Comic.objects.all()
     serializer_class = ComicSerializer
+    lookup_field = 'slug'
