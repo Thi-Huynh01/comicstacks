@@ -4,6 +4,12 @@ from comics.models import Comic, Author, Publisher
 from datetime import datetime
 import requests
 
+"""
+Author object is getting illustrators at some points. 
+Implement Illustrator table in models.
+Find "role" in JSON structure.
+"""
+
 class Command(BaseCommand):
     # Usage - python manage.py getComics {publisher} {character_name} {limit}
     help = "Import comics using the ComicVine API"

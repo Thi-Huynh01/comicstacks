@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Comic
+from .serializer import ComicSerializer
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -17,3 +19,7 @@ def comics_list(request):
 # landing page for comics tab
 def comics_home(request):
     return render(request, 'comics/comics-home.html')
+
+class ComicViewSet(viewsets.ModelViewSet):
+    queryset = Comic.objects.all()
+    serializer_class = ComicSerializer

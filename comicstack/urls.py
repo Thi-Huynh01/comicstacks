@@ -27,4 +27,5 @@ urlpatterns = [
     path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('comics/', include('comics.urls')),
+    path('api/', include('comics.urls')),
 ]
