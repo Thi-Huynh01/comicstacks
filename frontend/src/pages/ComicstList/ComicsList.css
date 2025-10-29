@@ -1,0 +1,10 @@
+.comicsList a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.comicsList a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+}
