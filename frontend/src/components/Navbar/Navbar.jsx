@@ -1,7 +1,5 @@
 import React from 'react'
 import './Navbar.css'
-import logo_light from '../../assets/logo-black.png'
-import logo_dark from '../../assets/logo-white.png'
 import search_icon_light from '../../assets/search-w.png'
 import search_icon_dark from '../../assets/search-b.png'
 import toggle_light from '../../assets/night.png'
@@ -25,25 +23,6 @@ const Navbar = ({theme, setTheme}) => {
       <Link to="/news-feed">News Feed</Link>
       <Link to="/community">Community</Link>
       <Link to="/about">About</Link>
-      {/*
-      <ul>
-        <li>
-          <a href='/'>Home</a>
-        </li>
-        <li>
-        <a href="/comics">Comics</a>  
-        </li>
-        <li>
-          <a href='/news-feed'>News Feed</a>
-        </li>
-        <li>
-          <a href="/community">Community</a>
-        </li>
-        <li>
-          <a href="/about">About</a>
-        </li>
-      </ul>
-      */}
       <div className='search-box'>
         <input type='text' placeholder='Find Comics'/>
         <img src={theme == 'light' ? search_icon_light : search_icon_dark} alt=""/>

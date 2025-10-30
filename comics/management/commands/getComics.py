@@ -78,31 +78,31 @@ class Command(BaseCommand):
             comic_details = response.json()
             issue = comic_details["results"]
             creators = comic_details.get("results", {}).get("person_credits", [])
-
-            #for person in creators:
-                #author = person['name']
-                #print(f" - {person['name']} ({person['role']})")
             
+            for person in creators:
+                if person and person['role'] == "writer":
+                    print(f"\n{person['name']}: {person['role']}")
+                    author = person['name']
+                    author_obj, created = Author.objects.get_or_create(
+                        name=author,
+                        desc="placeholder Text for " + author
+                    )
+                    break
+                    
+
+            #print(author)
+                    
             # Store details in variables
             title = issue["name"]
             iss_no = issue["issue_number"]
             rel_date = issue["cover_date"]
             image_url = issue["image"]["original_url"]
-        
-            if creators:
-                author = creators[0]["name"]
-            else:
-                author = "N/A"
+
 
             #print (f"{title} Issue # {iss_no} by {author}. Released in {rel_date}\n{image_url}")
 
             # Create publisher and author before comic. Order is important for foreign key constraints
             publisher_obj, created = Publisher.objects.get_or_create(name=str(kwargs['publisher']))
-            
-            author_obj, created = Author.objects.get_or_create(
-                name=author,
-                desc="placeholder Text for " + author
-            )
 
             if rel_date:
                 try:
