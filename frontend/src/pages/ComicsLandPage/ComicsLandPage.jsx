@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const ComicsLandPage = () => {
     return (
         <div>
+            <title>Comics</title>
             <h1>
                 Comics Landing Page
             </h1>

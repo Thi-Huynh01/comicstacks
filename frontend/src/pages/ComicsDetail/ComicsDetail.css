@@ -1,0 +1,18 @@
+.comicsDetail {
+    padding: 50px;
+    margin-left: 50px;
+}
+
+.comicsDetail h1 {
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.comicsDetail img {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dark .comicsDetail {
+    color: white;
+}
