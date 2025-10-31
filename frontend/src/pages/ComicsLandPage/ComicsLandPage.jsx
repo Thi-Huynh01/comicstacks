@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-function ComicsLandPage() {
+const ComicsLandPage = () => {
     return (
         <div>
             <h1>

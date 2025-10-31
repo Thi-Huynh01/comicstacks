@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import './ComicsList.css'
 
-function ComicsList() {
+const ComicsList = () =>  {
     const [comics, setComics] = useState([]);
 
     useEffect(() => {
@@ -13,14 +13,18 @@ function ComicsList() {
     }, []);
 
     return (
-        <div className="comicsList">
+        <div className={`comicsList {theme}`}>
+            <title>Our Stack</title>
             <h1>
-                Comics
+                Our Stack
             </h1>
             <ul>
                 {comics.map((comic) => (
                     <li key={comic.id}>
-                        <Link to={`/comics/our-stack/${comic.slug}`}>{comic.title}</Link>
+                        <Link to={`/comics/our-stack/${comic.slug}`}>
+                            <img src={comic.cover_image} alt={comic.title} width="150" />
+                            <span className="comicsTitle">{comic.title}</span>
+                        </Link>
                     </li>
             ))}
             </ul>

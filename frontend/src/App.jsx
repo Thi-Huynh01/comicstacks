@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import ComicsList from './pages/ComicstList/ComicsList';
 import ComicsDetail from './pages/ComicsDetail/ComicsDetail'
 import ComicsLandPage from './pages/ComicsLandPage/ComicsLandPage'
+
 const App = () => {
   const current_theme = localStorage.getItem('current_theme');
   const [theme, setTheme] = useState(current_theme? current_theme : 'light');

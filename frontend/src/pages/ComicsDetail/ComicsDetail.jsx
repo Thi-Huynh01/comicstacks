@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-function ComicDetail() {
+const ComicDetail = () => {
     const { slug } = useParams();
     const [comic, setComic] = useState(null);
 

@@ -5,18 +5,20 @@ import search_icon_dark from '../../assets/search-b.png'
 import toggle_light from '../../assets/night.png'
 import toggle_dark from '../../assets/day.png'
 import logo from '../../assets/logo.png'
+import logo_light from '../../assets/logo_light.png'
+import logo_dark from '../../assets/logo_dark.png'
 import { Link } from 'react-router-dom';
 
 const Navbar = ({theme, setTheme}) => {
 
-  const toggle_mode = ()=>{
+  const toggle_mode = () => {
     theme == 'light' ? setTheme('dark') : setTheme('light')
   }
 
   return (
     <nav className={`navbar {theme}`}>
       <a href='/'>
-        <img src={theme == 'light' ? logo : logo} alt="" className='logo'/>
+        <img src={theme == 'light' ? logo_dark : logo_dark} alt="" className='logo'/>
       </a>
       <Link to="/">Home</Link>
       <Link to="/comics">Comics</Link>

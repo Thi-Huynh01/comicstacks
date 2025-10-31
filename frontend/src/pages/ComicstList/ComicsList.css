@@ -1,10 +1,52 @@
 .comicsList a {
+    display: grid;
+    text-align: center;
+    width: 400px;
     color: inherit;
     text-decoration: none;
     font-size: 20px;
 }
 
 .comicsList a:hover {
-    text-decoration: underline;
-    color: #ffcc00;
+    text-decoration:dashed;
+    color: white;
+}
+
+.comicsTitle {
+    display: inline-block;
+    margin-left: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+}
+
+.comicsList ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.comicsList li {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    margin-right: 30px;
+}
+
+.comicsList img {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 135px;
+}
+.dark .comicsList {
+    color: white;
+}
+
+.dark .comicsList a:hover {
+    text-decoration:double;
+    color: gray;
 }
