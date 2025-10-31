@@ -23,7 +23,7 @@ const ComicsList = () =>  {
                     <li key={comic.id}>
                         <Link to={`/comics/our-stack/${comic.slug}`}>
                             <img src={comic.cover_image} alt={comic.title} width="150" />
-                            <span className="comicsTitle">{comic.title}</span>
+                            <span>{comic.title}</span>
                         </Link>
                     </li>
             ))}

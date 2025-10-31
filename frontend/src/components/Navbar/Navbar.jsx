@@ -18,7 +18,7 @@ const Navbar = ({theme, setTheme}) => {
   return (
     <nav className={`navbar {theme}`}>
       <a href='/'>
-        <img src={theme == 'light' ? logo_dark : logo_dark} alt="" className='logo'/>
+        <img src={theme == 'light' ? logo_dark : logo_light} alt="" className='logo'/>
       </a>
       <Link to="/">Home</Link>
       <Link to="/comics">Comics</Link>
