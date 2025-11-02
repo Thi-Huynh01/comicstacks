@@ -30,4 +30,5 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('api/', include('comics.urls')),
     path('api/', include('users.urls')),
+    path('api/auth/', include('authentication.urls')),
 ]

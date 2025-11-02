@@ -1,5 +1,5 @@
 from .models import Profile, Review
-from .serializer import ProfileSerializer, ReviewSerializer
+from .serializers import ProfileSerializer, ReviewSerializer
 from rest_framework import viewsets
 
 # Create your views here.

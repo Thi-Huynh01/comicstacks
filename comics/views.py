@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Comic
-from .serializer import ComicSerializer
+from .serializers import ComicSerializer
 from rest_framework import viewsets
 from rest_framework import generics
 

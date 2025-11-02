@@ -30,6 +30,12 @@
     margin-left: 40px;
 }
 
+.profile-icon {
+    display: flex;
+    cursor: pointer;
+    align-items:right;
+}
+
 .search-box {
     display:flex;
     align-items: center;

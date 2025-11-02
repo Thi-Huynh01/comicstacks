@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Profile, Review
-from comics.serializer import ComicSerializer
+from comics.serializers import ComicSerializer
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
