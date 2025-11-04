@@ -1,5 +1,5 @@
 # Comic Stacks
-Website application for cataloging comic books.
+Full Stack application for cataloging comic books.
 
 # Features
 Reviewing Comics <br>
