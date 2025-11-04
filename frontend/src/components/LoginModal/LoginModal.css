@@ -1,0 +1,96 @@
+.modal-overlay {
+    font-family:sans-serif;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #222;
+    padding: 3rem;
+    border-radius: 12px;
+    width: 500px;
+    position: relative;
+    text-align: center;
+}
+.modal-content h2 {
+    color: beige;
+    margin-bottom:20px;
+}
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-content input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 16px;
+    background-color: gray;
+}
+
+.modal-content input::placeholder {
+    color: lightgray;
+}
+.modal-content button {
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+.modal-content h3{
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color:beige;
+}
+
+.modal-content button.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    color: white;
+    background: transparent;
+    border:none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.modal-bottom h2 {
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: left;
+    color: lightsteelblue;
+}
+
+.modal-bottom h2:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    width: 150px;
+}
+
+.modal-content button.close-btn :hover {
+    text-decoration: overline;
+    color: inherit;
+}
+
+.modal-content p {
+    margin-top: 20px;
+    color: lightsteelblue
+}
+
+.modal-content p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

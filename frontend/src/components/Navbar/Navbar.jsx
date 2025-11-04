@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
+import LoginModal from "../LoginModal/LoginModal"
 import search_icon_light from '../../assets/search-w.png'
 import search_icon_dark from '../../assets/search-b.png'
 import toggle_light from '../../assets/night.png'
@@ -11,16 +12,21 @@ import logo_dark from '../../assets/logo_dark.png'
 import { Link } from 'react-router-dom';
 
 const Navbar = ({theme, setTheme}) => {
+  const [showLogin, setShowLogin] = useState(false);
 
   const toggle_mode = () => {
     theme == 'light' ? setTheme('dark') : setTheme('light')
   }
 
   return (
+
     <nav className={`navbar {theme}`}>
-      <a href='/'>
-        <img src={theme == 'light' ? logo_light : logo_dark} alt="" className='logo'/>
-      </a>
+      <Link to="/">
+        <img src={theme == 'light' ? logo_light : logo_light}
+          alt=""
+          className='logo'
+        />
+      </Link>
         <Link to="/">Home</Link>
         <Link to="/comics">Comics</Link>
         <Link to="/community">Community</Link>
@@ -32,11 +38,20 @@ const Navbar = ({theme, setTheme}) => {
       </div>
 
       <img onClick={()=>{toggle_mode()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className='toggle-icon'/>
-      <img src={theme == 'light' ? profile_light : profile_dark }width = "50" alt="" className='profile-icon'/>
+      
+      <img src={theme == 'light' ? profile_light : profile_dark }
+        width = "50" 
+        alt="" 
+        className='profile-icon'
+        onClick={() => setShowLogin(true)}
+        />
+
+       <LoginModal show={showLogin} onClose={() => setShowLogin(false)} />
+
+   
     </nav>
 
-    
-  )
-}
+  );
+};
 
 export default Navbar
