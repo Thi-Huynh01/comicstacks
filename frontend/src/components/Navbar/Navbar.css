@@ -20,7 +20,7 @@
 }
 
 .navbar a:hover{
-  text-decoration: overline;
+  text-decoration: underline;
   color: inherit;
 }
 

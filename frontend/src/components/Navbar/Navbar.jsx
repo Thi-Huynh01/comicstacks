@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import './Navbar.css'
 import LoginModal from "../LoginModal/LoginModal"
 import search_icon_light from '../../assets/search-w.png'
@@ -10,9 +10,21 @@ import profile_dark from '../../assets/profile_dark.png'
 import logo_light from '../../assets/logo_light.png'
 import logo_dark from '../../assets/logo_dark.png'
 import { Link } from 'react-router-dom';
+import ProfileDropDown from '../ProfileDropdown/ProfileDropdown'
 
 const Navbar = ({theme, setTheme}) => {
-  const [showLogin, setShowLogin] = useState(false);
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef();
+
+  useEffect(() => {
+    const close = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("click",close);
+    return () => document.removeEventListener("click", close);
+  }, []);
 
   const toggle_mode = () => {
     theme == 'light' ? setTheme('dark') : setTheme('light')
@@ -39,16 +51,15 @@ const Navbar = ({theme, setTheme}) => {
 
       <img onClick={()=>{toggle_mode()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className='toggle-icon'/>
       
-      <img src={theme == 'light' ? profile_light : profile_dark }
-        width = "50" 
-        alt="" 
-        className='profile-icon'
-        onClick={() => setShowLogin(true)}
-        />
-
-       <LoginModal show={showLogin} onClose={() => setShowLogin(false)} />
-
-   
+      <div ref={menuRef}>
+        <img src={theme == 'light' ? profile_light : profile_dark }
+          width = "50" 
+          alt="" 
+          className='profile-icon'
+          onClick={() => setOpen(!open)}
+          />
+          {open && <ProfileDropDown/>}
+      </div>
     </nav>
 
   );
