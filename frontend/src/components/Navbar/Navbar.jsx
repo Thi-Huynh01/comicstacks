@@ -58,7 +58,7 @@ const Navbar = ({theme, setTheme}) => {
           className='profile-icon'
           onClick={() => setOpen(!open)}
           />
-          {open && <ProfileDropDown/>}
+          {open && <ProfileDropDown closeMenu={() => setOpen(false)} />}
       </div>
     </nav>
 

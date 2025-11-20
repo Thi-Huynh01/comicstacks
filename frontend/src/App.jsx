@@ -5,7 +5,7 @@ import Home from './pages/Home/Home';
 import ComicsList from './pages/ComicstList/ComicsList';
 import ComicsDetail from './pages/ComicsDetail/ComicsDetail'
 import ComicsLandPage from './pages/ComicsLandPage/ComicsLandPage'
-
+import LoginPage from './pages/LoginPage/LoginPage'
 
 const App = () => {
   const current_theme = localStorage.getItem('current_theme');
@@ -21,8 +21,9 @@ const App = () => {
           <Navbar theme={theme} setTheme={setTheme}/>
         <Routes>
           <Route path="/" element={<Home/>} />
-          {/*
+          
           <Route path="/login" element={<LoginPage/>}/>
+          {/*}
           <Route path="/register" element={<Register/>}/>
           */}
           <Route path="/comics" element={<ComicsLandPage/>} />
