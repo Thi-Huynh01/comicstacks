@@ -1,4 +1,4 @@
-.login-page {
+.register-page {
     min-height: 50vh;
     display: flex;
     justify-content: center;
@@ -6,15 +6,16 @@
     text-align: center;
 }
 
-.login-page h2 {
-    padding:25px;
-}
-
-.dark .login-page {
+.dark .register-page {
     color: white;
 }
 
-.login-content {
+.register-page h3{
+    font-size: 15px;
+    padding: 15px;
+}
+
+.register-content {
     background: inherit;
     padding: 3rem;
     border-radius: 12px;
@@ -23,40 +24,40 @@
     text-align: center;
 }
 
-.login-content form {
+.register-content form {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.login-content h2{
+.register-content h2{
     color: black;
 }
 
-.dark .login-content h2 {
+.dark .register-content h2 {
     color: white;
 }
 
-.login-content input {
+.register-content input {
     padding: 8px;
     font-size: 16px;
     border-radius: 16px;
     background-color: antiquewhite;
 }
 
-.dark .login-content input {
+.dark .register-content input {
     background-color: gray;
 }
 
-.login-content input::placeholder {
+.register-content input::placeholder {
     color: darkgoldenrod;
 }
 
-.dark .login-content input::placeholder {
+.dark .register-content input::placeholder {
     color: lightgray;
 }
 
-.login-content button {
+.register-content button {
     padding: 10px;
     border-radius: 16px;
     font-size: 16px;
@@ -64,7 +65,7 @@
     background-color: blueviolet;
 }
 
-.login-bottom a {
+.register-bottom a {
     margin-top: 10px;
     font-size: 16px;
     text-align: left;
@@ -72,11 +73,11 @@
     color: black;
 }
 
-.dark .login-bottom a {
+.dark .register-bottom a {
     color: white;
 }
 
-.login-bottom a:hover{
+.register-bottom a:hover{
     cursor: pointer;
     text-decoration: underline;
     width: 150px;

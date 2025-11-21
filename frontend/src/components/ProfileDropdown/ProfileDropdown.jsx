@@ -8,7 +8,6 @@ const ProfileDropDown = ({ closeMenu }) => {
   const isLoggedIn = !!sessionStorage.getItem("access");
   //const isLoggedIn = !!localStorage.getItem("access"); // checks for access token
 
-
     return (
         <div className='flex flex-col ProfileDropdown'>
             
