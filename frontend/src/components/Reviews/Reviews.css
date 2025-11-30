@@ -1,0 +1,14 @@
+.reviews {
+    align-items: left;
+    padding: 10px;
+}
+
+.reviews textarea {
+    resize: none;
+    padding: 10px;
+}
+
+.reviews button {
+    margin-top: 10px;
+    padding: 8px 12px;
+}

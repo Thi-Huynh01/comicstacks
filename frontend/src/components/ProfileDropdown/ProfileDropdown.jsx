@@ -5,8 +5,8 @@ import './ProfileDropdown.css'
 
 const ProfileDropDown = ({ closeMenu }) => {
   const [open, setOpen] = useState(false);
-  const isLoggedIn = !!sessionStorage.getItem("access");
-  //const isLoggedIn = !!localStorage.getItem("access"); // checks for access token
+  //const isLoggedIn = !!sessionStorage.getItem("access");
+  const isLoggedIn = !!localStorage.getItem("access"); // checks for access token
 
     return (
         <div className='flex flex-col ProfileDropdown'>
@@ -21,10 +21,10 @@ const ProfileDropDown = ({ closeMenu }) => {
                 <Link>My Account</Link>
                 <Link>Settings</Link>
                 <Link onClick={() => {
-                    //localStorage.removeItem("access");
-                    //localStorage.removeItem("refresh");
-                    sessionStorage.removeItem("access");
-                    sessionStorage.removeItem("refresh");
+                    localStorage.removeItem("access");
+                    localStorage.removeItem("refresh");
+                    //sessionStorage.removeItem("access");
+                    //sessionStorage.removeItem("refresh");
                     window.location.reload();
                 }}>Logout</Link>
             </ul>

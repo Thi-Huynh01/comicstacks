@@ -8,12 +8,14 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ReviewSerializer(serializers.ModelSerializer):
-    user = ProfileSerializer()
-    comic = ComicSerializer()
+    #user = serializers.PrimaryKeyRelatedField(read_only=True)
+    #comic = serializers.PrimaryKeyRelatedField(read_only=True)
+    user = serializers.CharField(source='user.username', read_only=True)
     
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ['id', 'subject', 'body', 'rating', 'user', 'comic', 'date_posted']
+        read_only_fields = ['user', 'comic', 'date_posted']
     
     def validate_rating(self, value):
         if not 1 <= value <= 5:

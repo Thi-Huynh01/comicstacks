@@ -23,10 +23,10 @@ const LoginPage = () => {
             const data = await res.json();
 
             if (res.ok) {
-                //localStorage.setItem("access", data.access);
-                //localStorage.setItem("refresh", data.refresh);
-                sessionStorage.setItem("access", data.access);
-                sessionStorage.setItem("refresh", data.refresh);
+                localStorage.setItem("access", data.access);
+                localStorage.setItem("refresh", data.refresh);
+                //sessionStorage.setItem("access", data.access);
+                //sessionStorage.setItem("refresh", data.refresh);
                 alert("Logged In!")
                 navigate("/")
             }

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import './ComicsDetail.css'
+import Reviews from "../../components/Reviews/Reviews";
 
 const ComicDetail = () => {
     const { slug } = useParams();
@@ -19,14 +20,23 @@ const ComicDetail = () => {
         <div className={`comicsDetail {theme}`}>
             <title>{comic.title}</title>
             <h1>{comic.title}</h1>
-            <img src={comic.cover_image} alt={comic.title} width="400"/>
-            <p>Issue #{comic.issue_no}</p>
-            <p>Release Date: {comic.release_date}</p>
-            <p>Author: {comic.author.name}</p>
-            <p>Publisher: {comic.publisher.name}</p>
+            <div style={{ display: "flex", gap: "40px", padding: "20px" }}>
+                <div style={{ flex: 1 }}>
+                    <img 
+                        src={comic.cover_image} 
+                        alt={comic.title} 
+                        width="400"
+                    />
+                    <p>Issue #{comic.issue_no}</p>
+                    <p>Release Date: {comic.release_date}</p>
+                    <p>Author: {comic.author.name}</p>
+                    <p>Publisher: {comic.publisher.name}</p>
+                </div>
+            </div>
+                    <Reviews slug={slug}/>
         </div>
     );
 
-}
+};
 
 export default ComicDetail;
