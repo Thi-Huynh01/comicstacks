@@ -10,7 +10,7 @@
 
 .comicsList a:hover {
     text-decoration:dashed;
-    color: white;
+    color: gray;
 }
 
 .comicsList span {

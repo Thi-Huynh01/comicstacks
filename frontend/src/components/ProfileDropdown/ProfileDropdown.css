@@ -1,8 +1,8 @@
 .ProfileDropdown {
     justify-content: center;
     position: absolute;
-    top: 6.7rem;
-    right: 5.7rem;
+    top: 6.5rem;
+    right: 2.6rem;
     width: 150px;
     padding: 15px;
     border-radius: 8px;
@@ -14,7 +14,7 @@
     content: '';
     position: absolute;
     top: -0.7rem;
-    right: 3rem;
+    right: 2.8rem;
     width: 20px;
     height: 20px;
     transform: rotate(45deg);
@@ -36,7 +36,7 @@
 }
 
 .ProfileDropdown a:hover {
-    text-decoration:underline;
+    opacity: .4;
 }
 
 .dark .ProfileDropdown {

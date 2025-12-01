@@ -4,12 +4,12 @@
     align-items: center;
     justify-content: space-between;
     background: #fff;
-    padding: 15px 7%;
+    padding: 15px 2%;
     transition: 1s;
 }
 
 .logo{
-    width:fit-content;
+    width: 335px;
     cursor: pointer;
 }
 
@@ -20,20 +20,20 @@
 }
 
 .navbar a:hover{
-  text-decoration: underline;
+  text-decoration:none;
+  opacity:0.4;
   color: inherit;
 }
 
 .toggle-icon{
     width:50px;
     cursor:pointer;
-    margin-left: 40px;
 }
 
 .profile-icon {
     display: flex;
     cursor: pointer;
-    align-items:right;
+    margin-right: 40px;
 }
 
 .search-box {
@@ -79,3 +79,12 @@
 .dark .search-box input::placeholder{
     color: #222;
 }
+
+.nav-link {
+    display:flex;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    color: inherit;
+}
+

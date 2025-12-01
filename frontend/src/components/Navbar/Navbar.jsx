@@ -1,16 +1,17 @@
 import React, { useRef, useEffect, useState } from 'react'
 import './Navbar.css'
-import LoginModal from "../LoginModal/LoginModal"
 import search_icon_light from '../../assets/search-w.png'
 import search_icon_dark from '../../assets/search-b.png'
-import toggle_light from '../../assets/night.png'
-import toggle_dark from '../../assets/day.png'
-import profile_light from '../../assets/profile_light.png'
-import profile_dark from '../../assets/profile_dark.png'
 import logo_light from '../../assets/logo_light.png'
-import logo_dark from '../../assets/logo_dark.png'
 import { Link } from 'react-router-dom';
+import Home from '@mui/icons-material/Home';
+import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 import ProfileDropDown from '../ProfileDropdown/ProfileDropdown'
+import ForumIcon from '@mui/icons-material/Forum';
+import FeedIcon from '@mui/icons-material/Feed';
+import InfoIcon from '@mui/icons-material/Info';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ContrastIcon from '@mui/icons-material/Contrast';
 
 const Navbar = ({theme, setTheme}) => {
   const [open, setOpen] = useState(false);
@@ -39,24 +40,25 @@ const Navbar = ({theme, setTheme}) => {
           className='logo'
         />
       </Link>
-        <Link to="/">Home</Link>
-        <Link to="/comics">Comics</Link>
-        <Link to="/community">Community</Link>
-        <Link to="/news-feed">News Feed</Link>
-        <Link to="/about">About</Link>
+        <Link to="/" className='nav-link'><Home fontSize='medium' className='nav-icon'/>Home</Link>
+        <Link to="/comics" className='nav-link'><AutoStoriesRoundedIcon fontSize='medium'/>Comics</Link>
+        <Link to="/community" className='nav-link'><ForumIcon fontSize='medium'/>Community</Link>
+        <Link to="/news-feed" className='nav-link'><FeedIcon fontSize='medium'/>News Feed</Link>
+        <Link to="/about" className='nav-link'><InfoIcon fontSize='medium'/>About</Link>
       <div className='search-box'>
         <input type='text' placeholder='Find Comics'/>
         <img src={theme == 'light' ? search_icon_light : search_icon_dark} alt=""/>
       </div>
 
-      <img onClick={()=>{toggle_mode()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className='toggle-icon'/>
-      
-      <div ref={menuRef}>
-        <img src={theme == 'light' ? profile_light : profile_dark }
-          width = "50" 
-          alt="" 
-          className='profile-icon'
-          onClick={() => setOpen(!open)}
+      <ContrastIcon onClick={() => {toggle_mode()}} className='toggle-icon' sx ={{ fontSize: 45 }}/>
+      {/*<img onClick={()=>{toggle_mode()}} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className='toggle-icon'/>
+      */}
+      <div className='nav-right' ref={menuRef}>
+
+          <AccountCircleIcon 
+            sx={{ fontSize: 45 }}
+            className='profile-icon' 
+            onClick={() => setOpen(!open)}
           />
           {open && <ProfileDropDown closeMenu={() => setOpen(false)} />}
       </div>
@@ -65,4 +67,4 @@ const Navbar = ({theme, setTheme}) => {
   );
 };
 
-export default Navbar
+export default Navbar;
