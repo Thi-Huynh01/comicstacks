@@ -29,6 +29,7 @@ const Home = () => {
 
     return (
         <div className='home-container'>
+            <title>Comic Stacks - Home</title>
             <div className='content-row'>
                 <div className="slider-container">
                     <div className="slider-wrapper">

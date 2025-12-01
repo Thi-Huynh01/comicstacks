@@ -30,7 +30,7 @@ class Author(models.Model):
 # Comics table
 class Comic(models.Model):
     title = models.CharField(max_length=200)
-    character = models.CharField(max_length=200)
+    character = models.CharField(max_length=200) # Probably get rid of soon
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, related_name='comics_author')
     publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null= True, related_name='comics_publisher')
     #review = models.ForeignKey(Review, on_delete=models.SET_NULL, null= True, related_name='comics')
