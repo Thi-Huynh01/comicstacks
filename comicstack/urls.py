@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.shortcuts import render, get_object_or_404
 from django.urls import path, include
+from .views import api_root
 
 # Landing Page
 def home(request):
@@ -28,7 +29,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('comics/', include('comics.urls')),
     path('users/', include('users.urls')),
+    path('api/', api_root, name='api-root'),
     path('api/', include('comics.urls')),
     path('api/', include('users.urls')),
     path('api/auth/', include('authentication.urls')),
+    path('api/threads/', include('forums.urls')),
 ]

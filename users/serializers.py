@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Profile, Review
-from comics.serializers import ComicSerializer
+#from comics.serializers import ComicSerializer
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,3 +21,4 @@ class ReviewSerializer(serializers.ModelSerializer):
         if not 1 <= value <= 5:
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
+    

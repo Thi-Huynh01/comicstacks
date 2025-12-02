@@ -1,6 +1,6 @@
 from .models import Profile, Review
 from .serializers import ProfileSerializer, ReviewSerializer
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.generics import ListCreateAPIView
 from comics.models import Comic
@@ -27,3 +27,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
         slug = self.kwargs.get("slug") or self.kwargs.get("slug_slug")
         comic = Comic.objects.get(slug=slug)
         serializer.save(user=self.request.user, comic=comic)
+
+class AllReviewsListView(generics.ListAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
