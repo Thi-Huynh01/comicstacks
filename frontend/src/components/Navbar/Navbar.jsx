@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Home from '@mui/icons-material/Home';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 import ProfileDropDown from '../ProfileDropdown/ProfileDropdown'
-import ForumIcon from '@mui/icons-material/Forum';
+import PublicIcon from '@mui/icons-material/Public';
 import FeedIcon from '@mui/icons-material/Feed';
 import InfoIcon from '@mui/icons-material/Info';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -35,14 +35,15 @@ const Navbar = ({theme, setTheme}) => {
 
     <nav className={`navbar {theme}`}>
       <Link to="/">
-        <img src={theme == 'light' ? logo_light : logo_light}
+        <img
+          src={logo_light}
           alt=""
           className='logo'
         />
       </Link>
         <Link to="/" className='nav-link'><Home fontSize='medium' className='nav-icon'/>Home</Link>
         <Link to="/comics" className='nav-link'><AutoStoriesRoundedIcon fontSize='medium'/>Comics</Link>
-        <Link to="/community" className='nav-link'><ForumIcon fontSize='medium'/>Community</Link>
+        <Link to="/community" className='nav-link'><PublicIcon fontSize='medium'/>Community</Link>
         <Link to="/news-feed" className='nav-link'><FeedIcon fontSize='medium'/>News Feed</Link>
         <Link to="/about" className='nav-link'><InfoIcon fontSize='medium'/>About</Link>
       <div className='search-box'>

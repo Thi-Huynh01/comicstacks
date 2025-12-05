@@ -8,7 +8,8 @@ class ThreadCategorySerializer(serializers.ModelSerializer):
 
 class ThreadSerializer(serializers.ModelSerializer):
     user = serializers.CharField(source='user.username', read_only=True)
-
+    category = ThreadCategorySerializer(read_only=True)
+    
     class Meta:
         model = Thread
         fields = '__all__'

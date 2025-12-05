@@ -1,19 +1,28 @@
-from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import ThreadReplyViewSet, ThreadViewSet, ThreadCategoryViewSet
+from rest_framework_nested import routers
+from .views import ThreadCategoryViewSet, ThreadViewSet, ThreadReplyViewSet
 
 router = DefaultRouter()
-router.register(r'thread-categories', ThreadCategoryViewSet)
+router.register(r'categories', ThreadCategoryViewSet, basename="thread-category")
 router.register(r'threads', ThreadViewSet)
-router.register(r'thread-replies', ThreadReplyViewSet)
 
-urlpatterns = router.urls
+# Thread category router
+category_router = routers.NestedDefaultRouter(router, r'categories', lookup="category")
+category_router.register(r'threads', ThreadViewSet, basename="category-threads")
+
+# Thread actual router
+thread_router = routers.NestedDefaultRouter(category_router, r'threads', lookup="thread")
+thread_router.register(r'replies', ThreadReplyViewSet, basename="thread-replies")
+
+urlpatterns = router.urls + category_router.urls + thread_router.urls
+
 
 '''
 Endpoints:
 
-/api/thread-categories/ -list all categories
-/api/thread-categories/<slug>/ - get single category by slug
-/api/threads/ -list all threads
-/api/threads/<pk>/ get single thread via primary key
+/api/forums/categories/
+/api/forums/categories/<category_slug>/threads/
+/api/forums/categories/<category_slug>/threads/<thread_pk>/
+/api/forums/categories/<category_slug>/threads/<thread_pk>/replies/
+
 '''

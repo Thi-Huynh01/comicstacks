@@ -10,7 +10,7 @@ def api_root(request):
         'Comics': f'{base_url}comics/',
         'Users': f'{base_url}profiles/',
         'Reviews': f'{base_url}reviews/',
-        'Threads': f'{base_url}threads/',
+        'Forums': f'{base_url}forums/',
         'Login': f'{base_url}auth/login/',
         'Register': f'{base_url}auth/register/'
     })

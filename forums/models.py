@@ -42,6 +42,6 @@ class ThreadReply(models.Model):
         verbose_name_plural = "Thread Replies"
 
     def __str__(self):
-        return self.body
+        return self.body[0:50]
 
 

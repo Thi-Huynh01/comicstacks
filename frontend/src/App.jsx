@@ -7,6 +7,8 @@ import ComicsDetail from './pages/ComicsDetail/ComicsDetail'
 import ComicsLandPage from './pages/ComicsLandPage/ComicsLandPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
+import CommunityLandingPage from './pages/CommunityLanding/Community'
+import ThreadDetail from './pages/ThreadDetail/ThreadDetail'
 
 const App = () => {
   const current_theme = localStorage.getItem('current_theme');
@@ -27,6 +29,8 @@ const App = () => {
           <Route path="/comics" element={<ComicsLandPage/>} />
           <Route path="/comics/our-stack" element={<ComicsList/>} />
           <Route path="/comics/our-stack/:slug" element={<ComicsDetail/>}/>
+          <Route path="/community" element={<CommunityLandingPage/>}/>
+          <Route path="/community/forums/:cat_slug/:threadId/" element={<ThreadDetail/>}/>
         </Routes>
       </Router>
     </div>

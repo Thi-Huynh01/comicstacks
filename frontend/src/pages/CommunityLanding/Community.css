@@ -1,0 +1,15 @@
+.discussion-header {
+    display:flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: inherit;
+    margin-top: 10px;
+    margin-left: 150px;
+    font-size: 27.5px;
+    transition: 1s;
+}
+
+.dark .discussion-header {
+    color: white;
+}

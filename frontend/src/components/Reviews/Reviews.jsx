@@ -5,10 +5,11 @@ const Reviews = ( { slug }) => {
 
     const [reviews, setReviews] = useState([]);
     const [newReview, setNewReview] = useState("");
-    //const token = sessionStorage.getItem("access");
     const token = localStorage.getItem("access");
-    console.log("token: ", token);
-    console.log(slug);
+
+    //const token = sessionStorage.getItem("access");
+    //console.log("token: ", token);
+    //console.log(slug);
     const isLoggedIn = !!token;
 
     useEffect(() => {
