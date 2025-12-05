@@ -16,7 +16,7 @@ const ThreadDetail = () => {
     if (!thread) return <p>Loading thread...</p>
 
     return (
-        <div>
+        <div className='thread-page'>
             <h1>
                 {thread.title}
             </h1>

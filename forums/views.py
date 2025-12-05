@@ -11,7 +11,7 @@ class ThreadCategoryViewSet(viewsets.ModelViewSet):
     lookup_field = "slug"
 
 class ThreadViewSet(viewsets.ModelViewSet):
-    queryset = Thread.objects.all()
+    queryset = Thread.objects.all().order_by("-creation_date")
     serializer_class = ThreadSerializer
 
     # filter by categories. 
@@ -19,7 +19,7 @@ class ThreadViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
 
         # default queryset
-        queryset = Thread.objects.all()
+        queryset = Thread.objects.all().order_by("-creation_date")
 
         # set slug
         category_slug = self.kwargs.get("category_slug")
