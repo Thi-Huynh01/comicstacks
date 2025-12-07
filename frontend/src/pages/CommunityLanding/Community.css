@@ -1,4 +1,4 @@
-.discussion-header {
+.discussion-container h1 {
     display:flex;
     align-items: center;
     gap: 6px;
@@ -8,6 +8,14 @@
     margin-left: 150px;
     font-size: 27.5px;
     transition: 1s;
+}
+
+.discussion-header-row {
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    width: 61%;
+    align-items: center;
 }
 
 .discussion-container {
@@ -101,7 +109,7 @@
 
 .dark .discussion-card {
     background: rgb(19, 18, 18);
-    border: 1px solid #ffffff;
+    border: 1px solid #0000;
 }
 
 

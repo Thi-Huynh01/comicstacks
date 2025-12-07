@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import ForumIcon from '@mui/icons-material/Forum';
 import TagIcon from '@mui/icons-material/Tag';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import CircleIcon from '@mui/icons-material/Circle';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import AddIcon from '@mui/icons-material/Add';
 import './Community.css';
 
 const CommunityLandingPage = () => {
@@ -21,7 +23,7 @@ const CommunityLandingPage = () => {
         const dateObj = new Date(dateString);
         const options = {
             year:'numeric',
-            month:'long',
+            month:'2-digit',
             day:'numeric'
         };
         const formattedDate = dateObj.toLocaleDateString("en-US", options);
@@ -33,10 +35,20 @@ const CommunityLandingPage = () => {
     return (
         <div className="discussion-container">
             <title>Community</title>
-            <h1 className="discussion-header">
+            <div className="discussion-header-row">
+            <h1>
                 <ForumIcon fontSize="medium"/>Discussions
             </h1>
-            <div className="discussion-list"> 
+            <Button 
+                variant="contained" 
+                startIcon={<AddIcon/>}
+                sx={{ backgroundColor: 'white', color: 'black' }}>
+                    New Thread
+            </Button>
+            </div>
+            <div className="discussion-list">
+             
+
                 {threads.map(thread => (
                     <div className='discussion-card'key = {thread.id}>
                         <Link 
