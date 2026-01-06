@@ -23,7 +23,7 @@ const Reviews = ( { slug }) => {
         e.preventDefault();
 
         if(!slug) {
-            console.error("Comic slug is undefined!");
+            console.error("Comic slug is undefined");
             return;
         }
 

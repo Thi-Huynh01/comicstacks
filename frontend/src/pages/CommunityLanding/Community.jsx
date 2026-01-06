@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ForumIcon from '@mui/icons-material/Forum';
 import TagIcon from '@mui/icons-material/Tag';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
+//import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
 import './Community.css';
 
 const CommunityLandingPage = () => {
 
     const [threads, setThreads] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://127.0.0.1:8000/api/forums/threads/`)
@@ -42,12 +43,13 @@ const CommunityLandingPage = () => {
             <Button 
                 variant="contained" 
                 startIcon={<AddIcon/>}
-                sx={{ backgroundColor: 'white', color: 'black' }}>
+                sx={{ backgroundColor: 'white', color: 'black' }}
+                onClick={() => navigate('/community/forums/new')}
+                >
                     New Thread
             </Button>
             </div>
             <div className="discussion-list">
-             
 
                 {threads.map(thread => (
                     <div className='discussion-card'key = {thread.id}>

@@ -1,0 +1,36 @@
+.thread-container {
+    padding: 50px;
+    justify-content: center;
+}
+
+.thread-header {
+    margin-left: 20px;
+}
+
+.dark .MuiInputBase-root,
+.dark .thread-container {
+    color: white;
+}
+
+.dark .MuiInput-underline:before,
+.dark .MuiInput-underline:hover:before,
+.dark .MuiInput-underline:after {
+    border-bottom-color: white
+}
+
+.dark .MuiPaper-root {
+  background-color: #121212;
+  color: white;
+}
+
+.dark .MuiInputLabel-root.Mui-focused,
+.dark .MuiOutlinedInput-root,
+.dark .MuiInputLabel-root {
+    color:white
+}
+
+.dark .MuiOutlinedInput-root fieldset,
+.dark .MuiOutlinedInput-root:hover fieldset,
+.dark .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: white;
+}
