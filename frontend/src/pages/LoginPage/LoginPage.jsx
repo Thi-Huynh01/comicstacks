@@ -28,7 +28,7 @@ const LoginPage = () => {
                 //sessionStorage.setItem("access", data.access);
                 //sessionStorage.setItem("refresh", data.refresh);
                 alert("Logged In!")
-                navigate("/")
+                navigate(-1)
             }
             else {
                 alert(data.error || "Login failed");
