@@ -31,7 +31,7 @@ class ThreadViewSet(viewsets.ModelViewSet):
         return queryset
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        serializer.save(user=self.request.user)
 
 class ThreadReplyViewSet(viewsets.ModelViewSet):
     queryset = ThreadReply.objects.all()

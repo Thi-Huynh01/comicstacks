@@ -10,6 +10,12 @@ class ThreadSerializer(serializers.ModelSerializer):
     user = serializers.CharField(source='user.username', read_only=True)
     category = ThreadCategorySerializer(read_only=True)
     
+    category_id = serializers.PrimaryKeyRelatedField(
+        source='category',
+        queryset=ThreadCategory.objects.all(),
+        write_only=True
+    )
+    
     class Meta:
         model = Thread
         fields = '__all__'
