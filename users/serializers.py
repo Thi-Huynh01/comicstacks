@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from .models import Profile, Review
-#from comics.serializers import ComicSerializer
+from .models import Profile, Review, UserComic
+from comics.serializers import ComicSerializer
+from comics.models import Comic
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,4 +22,15 @@ class ReviewSerializer(serializers.ModelSerializer):
         if not 1 <= value <= 5:
             raise serializers.ValidationError("Rating must be between 1 and 5.")
         return value
-    
+
+class UserComicSerializer(serializers.ModelSerializer):
+    comic = serializers.PrimaryKeyRelatedField(queryset=Comic.objects.all())
+    '''comic_id = serializers.PrimaryKeyRelatedField(
+        source='comic',
+        queryset=Comic.objects.all(),
+        write_only=True
+    )
+'''
+    class Meta:
+        model = UserComic
+        fields = ['id','comic','status']

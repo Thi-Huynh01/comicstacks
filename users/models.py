@@ -17,8 +17,18 @@ class Profile(AbstractUser):
 
 
 class Review(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='comics')
-    comic = models.ForeignKey(Comic, on_delete=models.SET_NULL, null=True, related_name='comics')
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        related_name='comics')
+    
+    comic = models.ForeignKey(
+        Comic, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        related_name='comics')
+    
     subject = models.CharField(max_length=200)
     body = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
@@ -31,3 +41,45 @@ class Review(models.Model):
 
     def __str__(self):
         return self.subject
+    
+
+# list of comics on user-profile
+
+class UserComic(models.Model):
+    STATUS_CHOICES = [
+        ('read', 'Read'),
+        ('reading', 'Currently Reading'),
+        ('wishlist', 'Want to Read'),
+    ]
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='comic_entries'
+    )
+
+    comic = models.ForeignKey(
+        Comic,
+        on_delete=models.CASCADE,
+        related_name='user_entries'
+    )
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='read'
+    )
+
+    rating = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True
+    )
+
+    date_read = models.DateField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'comic')
+    
+    def __str__ (self):
+        return self.user + self.comic

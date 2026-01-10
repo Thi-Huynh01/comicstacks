@@ -1,7 +1,7 @@
-from .models import Profile, Review
-from .serializers import ProfileSerializer, ReviewSerializer
+from .models import Profile, Review, UserComic
+from .serializers import ProfileSerializer, ReviewSerializer, UserComicSerializer
 from rest_framework import viewsets, permissions, generics
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.generics import ListCreateAPIView
 from comics.models import Comic
 
@@ -31,3 +31,18 @@ class ReviewViewSet(viewsets.ModelViewSet):
 class AllReviewsListView(generics.ListAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+
+class UserComicViewSet(viewsets.ModelViewSet):
+    serializer_class = UserComicSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = UserComic.objects.filter(user=self.request.user)
+        comic_id = self.request.query_params.get('comic')
+        if comic_id:
+            queryset = queryset.filter(comic_id=comic_id)
+
+        return queryset
+    
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
