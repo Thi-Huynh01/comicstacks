@@ -8,13 +8,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Logout from '@mui/icons-material/Logout';
 import './AccountMenu.css'
+import starman from '../../assets/starman.jpeg'
 const AccountMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const isLoggedIn = !!localStorage.getItem("access"); // checks for access token
     const open = Boolean(anchorEl);
     const nav = useNavigate();
 
@@ -33,7 +34,6 @@ const AccountMenu = () => {
         //sessionStorage.removeItem("refresh");
         nav("/")
         window.location.reload();
-
     }
 
     return (
@@ -50,9 +50,11 @@ const AccountMenu = () => {
             aria-expanded={open ? 'true' : undefined}
           >
             <Avatar sx={{ fontSize: 45}}>
+              {/*
                 <AccountCircleIcon 
                     sx={{ fontSize: 45 }}
                 />
+                */} 
             </Avatar>
           </IconButton>
         </Tooltip>
@@ -94,31 +96,36 @@ const AccountMenu = () => {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> <Link to="/login">Log in</Link>
+
+        {!isLoggedIn ?  [
+          <>
+        <MenuItem onClick={() => nav("/login")}>
+          <Avatar /> Log In
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /><Link to="/profile">My account</Link>
+        <MenuItem onClick={() => nav("/register")}>
+          <Avatar /> Create an Account
+        </MenuItem>
+          </>
+         ] : [
+      <>
+        <MenuItem onClick={() => nav("/profile")}>
+          <Avatar /> My Profile
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-                <Link onClick={handleLogout}>Logout</Link>
+                Log Out
         </MenuItem>
+        </>
+        ]}
       </Menu>
     </React.Fragment>
     );

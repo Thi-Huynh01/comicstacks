@@ -17,6 +17,7 @@ const ComicDetail = () => {
     const [toastMessage, setToastMessage] = useState("");
     const [comic, setComic] = useState(null);
     const [userComic, setUserComic] = useState(null);
+    const isLoggedIn = !!localStorage.getItem("access"); 
 
     useEffect(() => {
         fetch(`http://127.0.0.1:8000/api/comics/${slug}/`)
@@ -64,7 +65,13 @@ const ComicDetail = () => {
                 wishlist: "Added to Readlist",
             };
 
-            setToastMessage(messages[status]);
+            if (!isLoggedIn) {
+                setToastMessage("Must be logged in to add to profile")
+            }
+            else {
+                setToastMessage(messages[status]);
+            }
+
             setToastOpen(true);
         })
         .catch(err => console.error("SetStatus error: ", err));
@@ -140,7 +147,7 @@ const ComicDetail = () => {
                     >
                             <Alert
                                 onClose={() => setToastOpen(false)}
-                                severity="success"
+                                severity={!isLoggedIn ? "error" : "success"}
                                 sx={{ width: '100%'}}
                             >
                                 {toastMessage}

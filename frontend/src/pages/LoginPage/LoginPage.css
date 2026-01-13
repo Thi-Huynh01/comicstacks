@@ -81,3 +81,15 @@
     text-decoration: underline;
     width: 150px;
 }
+
+.sign-in {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 70vh; 
+}
+
+.sign-in-box {
+    width: 500px;
+    max-width: 90vw;
+}

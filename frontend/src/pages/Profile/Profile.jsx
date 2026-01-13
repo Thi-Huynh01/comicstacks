@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authFetch from "../../utils/authFetch";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
@@ -9,6 +9,11 @@ const Profile = () => {
     const [userComics, setUserComics] = useState([]);
     const [filter, setFilter] = useState("all");
     const [profile, setProfile] = useState(null);
+    const isLoggedIn = !!localStorage.getItem("access")
+    const nav = useNavigate();
+
+    if (!isLoggedIn)
+        nav("/login")
 
     // Fetch profile info (username, bio)
     useEffect(() => {

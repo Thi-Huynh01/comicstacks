@@ -6,11 +6,9 @@ import logo_light from '../../assets/logo_light.png'
 import { Link } from 'react-router-dom';
 import Home from '@mui/icons-material/Home';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
-import ProfileDropDown from '../ProfileDropdown/ProfileDropdown'
 import PublicIcon from '@mui/icons-material/Public';
 import PeopleIcon from '@mui/icons-material/People';
 import InfoIcon from '@mui/icons-material/Info';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContrastIcon from '@mui/icons-material/Contrast';
 import AccountMenu from "../AccountMenu/AccountMenu"
 

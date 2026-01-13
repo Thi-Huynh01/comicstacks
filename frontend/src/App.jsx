@@ -6,6 +6,7 @@ import ComicsList from './pages/ComicstList/ComicsList';
 import ComicsDetail from './pages/ComicsDetail/ComicsDetail'
 import ComicsLandPage from './pages/ComicsLandPage/ComicsLandPage'
 import LoginPage from './pages/LoginPage/LoginPage'
+import SignInPage from './pages/LoginPage/LoginPage2'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import CommunityLandingPage from './pages/CommunityLanding/Community'
 import ThreadDetail from './pages/ThreadDetail/ThreadDetail'
@@ -26,7 +27,7 @@ const App = () => {
           <Navbar theme={theme} setTheme={setTheme}/>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/login" element={<LoginPage/>}/>
+          <Route path="/login" element={<SignInPage/>}/>
           <Route path="/register" element={<RegisterPage/>}/>
           <Route path="/comics" element={<ComicsLandPage/>} />
           <Route path="/comics/our-stack" element={<ComicsList/>} />
