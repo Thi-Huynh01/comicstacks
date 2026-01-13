@@ -8,10 +8,11 @@ import Home from '@mui/icons-material/Home';
 import AutoStoriesRoundedIcon from '@mui/icons-material/AutoStoriesRounded';
 import ProfileDropDown from '../ProfileDropdown/ProfileDropdown'
 import PublicIcon from '@mui/icons-material/Public';
-import FeedIcon from '@mui/icons-material/Feed';
+import PeopleIcon from '@mui/icons-material/People';
 import InfoIcon from '@mui/icons-material/Info';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ContrastIcon from '@mui/icons-material/Contrast';
+import AccountMenu from "../AccountMenu/AccountMenu"
 
 const Navbar = ({theme, setTheme}) => {
   const [open, setOpen] = useState(false);
@@ -44,7 +45,7 @@ const Navbar = ({theme, setTheme}) => {
         <Link to="/" className='nav-link'><Home fontSize='medium' className='nav-icon'/>Home</Link>
         <Link to="/comics" className='nav-link'><AutoStoriesRoundedIcon fontSize='medium'/>Comics</Link>
         <Link to="/community" className='nav-link'><PublicIcon fontSize='medium'/>Community</Link>
-        <Link to="/news-feed" className='nav-link'><FeedIcon fontSize='medium'/>News Feed</Link>
+        <Link to="/activity-feed" className='nav-link'><PeopleIcon fontSize='medium'/>Activity Feed</Link>
         <Link to="/about" className='nav-link'><InfoIcon fontSize='medium'/>About</Link>
       <div className='search-box'>
         <input type='text' placeholder='Find Comics'/>
@@ -56,12 +57,7 @@ const Navbar = ({theme, setTheme}) => {
       */}
       <div className='nav-right' ref={menuRef}>
 
-          <AccountCircleIcon 
-            sx={{ fontSize: 45 }}
-            className='profile-icon' 
-            onClick={() => setOpen(!open)}
-          />
-          {open && <ProfileDropDown closeMenu={() => setOpen(false)} />}
+      <AccountMenu/>
       </div>
     </nav>
 

@@ -10,6 +10,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import CommunityLandingPage from './pages/CommunityLanding/Community'
 import ThreadDetail from './pages/ThreadDetail/ThreadDetail'
 import ThreadCreation from './pages/ThreadCreation/ThreadCreation';
+import Profile from './pages/Profile/Profile';
 
 const App = () => {
   const current_theme = localStorage.getItem('current_theme');
@@ -32,7 +33,8 @@ const App = () => {
           <Route path="/comics/our-stack/:slug" element={<ComicsDetail/>}/>
           <Route path="/community" element={<CommunityLandingPage/>}/>
           <Route path="/community/forums/new" element={<ThreadCreation/>}/>
-          <Route path="/community/forums/:cat_slug/:threadId/" element={<ThreadDetail/>}/>
+          <Route path="/community/forums/:cat_slug/:threadId" element={<ThreadDetail/>}/>
+          <Route path="/profile" element={<Profile/>}/>
         </Routes>
       </Router>
     </div>

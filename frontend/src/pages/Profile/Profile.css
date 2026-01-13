@@ -1,0 +1,42 @@
+.profile-container {
+    padding: 2rem;
+}
+
+.profile-header {
+    margin-bottom: 2rem;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.5rem;
+}
+
+.profile-comic-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-comic-card img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.profile-comic-info {
+    margin-top: 0.5rem;
+}
+
+.profile-empty {
+    margin-top: 2rem;
+    opacity: 0.7;
+}
+
+.dark .profile-container {
+    color: white;
+}

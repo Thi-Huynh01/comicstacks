@@ -24,13 +24,14 @@ class ReviewSerializer(serializers.ModelSerializer):
         return value
 
 class UserComicSerializer(serializers.ModelSerializer):
-    comic = serializers.PrimaryKeyRelatedField(queryset=Comic.objects.all())
-    '''comic_id = serializers.PrimaryKeyRelatedField(
+    #comic = serializers.PrimaryKeyRelatedField(queryset=Comic.objects.all())
+    comic = ComicSerializer(read_only=True)
+
+    comic_id = serializers.PrimaryKeyRelatedField(
         source='comic',
         queryset=Comic.objects.all(),
         write_only=True
     )
-'''
     class Meta:
         model = UserComic
-        fields = ['id','comic','status']
+        fields = ['id','comic','status','comic_id']
