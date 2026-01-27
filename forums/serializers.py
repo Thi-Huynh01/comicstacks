@@ -9,6 +9,7 @@ class ThreadCategorySerializer(serializers.ModelSerializer):
 class ThreadSerializer(serializers.ModelSerializer):
     user = serializers.CharField(source='user.username', read_only=True)
     category = ThreadCategorySerializer(read_only=True)
+    image = serializers.ImageField(required=False)
     
     category_id = serializers.PrimaryKeyRelatedField(
         source='category',

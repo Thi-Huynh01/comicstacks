@@ -17,6 +17,7 @@ const ThreadDetail = () => {
 
     return (
         <div className='thread-page'>
+            
             <h1>
                 {thread.title}
             </h1>
@@ -27,6 +28,19 @@ const ThreadDetail = () => {
             <p>
                 {thread.body}
             </p>
+
+            {thread.image && (
+                <img
+                    src={thread.image}
+                    alt={thread.title}
+                    style ={{
+                        maxWidth: "100%",
+                        borderRadius: "8px",
+                        margin: "16px 0",
+                    }}
+                />
+            )}
+
             <p>
                 {thread.user}
             </p>

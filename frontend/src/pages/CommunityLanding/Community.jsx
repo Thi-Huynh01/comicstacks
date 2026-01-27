@@ -29,7 +29,7 @@ const CommunityLandingPage = () => {
         };
         const formattedDate = dateObj.toLocaleDateString("en-US", options);
     
-        console.log(threads.creation_date);
+        //console.log(threads.creation_date);
         return formattedDate;
     }
 

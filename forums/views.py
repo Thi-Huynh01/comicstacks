@@ -2,6 +2,7 @@ from .models import ThreadReply, Thread, ThreadCategory
 from .serializers import ThreadReplySerializer, ThreadSerializer, ThreadCategorySerializer
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.parsers import MultiPartParser, FormParser
 
 # Create your views here.
 
@@ -13,6 +14,7 @@ class ThreadCategoryViewSet(viewsets.ModelViewSet):
 class ThreadViewSet(viewsets.ModelViewSet):
     queryset = Thread.objects.all().order_by("-creation_date")
     serializer_class = ThreadSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
     # filter by categories. 
     #/api/forums/categories/<category_slug>/threads/

@@ -26,6 +26,11 @@ class Thread(models.Model):
     category = models.ForeignKey(ThreadCategory, on_delete=models.SET_NULL, null=True, related_name='thread_category')
     title = models.CharField(max_length=200)
     body = models.TextField()
+    image = models.ImageField(
+        upload_to="threads/images/",
+        blank=True,
+        null=True
+    )
     creation_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

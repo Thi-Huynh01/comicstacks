@@ -16,6 +16,7 @@ const ThreadCreation = () => {
     const [category, setCategory] = useState('');
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const [image, setImage] = useState(null);
     const token = localStorage.getItem("access");
     const nav = useNavigate();
 
@@ -34,20 +35,23 @@ const ThreadCreation = () => {
             alert("You must be logged in to post a thread");
             return;
         }
+        const formData = new FormData();
+        formData.append("category_id", category);
+        formData.append("title", title);
+        formData.append("body", body);
+
+        if (image) {
+            formData.append("image", image)
+        }
 
         const res = await fetch (
             'http://127.0.0.1:8000/api/forums/threads/',
             {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`,
                 },
-                body: JSON.stringify({ 
-                    category_id: category,
-                    title: title,
-                    body: body,
-                }),
+                body: formData,
 
             }
         );
@@ -122,6 +126,24 @@ const ThreadCreation = () => {
                     rows={15}
                 />
             </Box>
+            <Box sx={{ m: 2 }}>
+                <Button variant="outlined" component="label">
+                    Upload Image
+                    <input
+                    type="file"
+                    hidden
+                    accept="image/*"
+                    onChange={(e) => setImage(e.target.files[0])}
+                    />
+                </Button>
+
+                {image && (
+                    <div style={{ marginTop: 8, fontSize: 14 }}>
+                    Selected: {image.name}
+                    </div>
+                )}
+            </Box>
+
             <Button type="submit" onClick={handleSubmit} variant="contained" size="large" sx={{ m: 2 }}>Create Thread</Button>
 
         </div>
