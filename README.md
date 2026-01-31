@@ -18,4 +18,4 @@ Adding comics to a list <br>
 # 👾 Potential Future Tech Stack
 PostgreSQL <br>
 AWS S3 <br>
-Railway (Deployment)<br>
+Railway (Database Deployment)<br>
