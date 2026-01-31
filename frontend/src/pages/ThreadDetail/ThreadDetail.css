@@ -1,0 +1,73 @@
+.thread-page {
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px;
+}
+
+.thread-back {
+    padding: 10px;
+}
+
+.thread-card {
+    color: black;
+    max-width: 1000px;
+    width: 100%;
+    padding:24px 28px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.thread-header {
+    margin-bottom: 12px;
+}
+
+.thread-title {
+    font-size: 2rem;
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.thread-category {
+    font-size: 0.9rem;
+    color: #7aa2f7
+}
+
+.thread-meta {
+    font-size: 0.85rem;
+    color: #b0b0b0;
+    margin-bottom: 20px;
+}
+
+.thread-body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    white-space: pre-wrap;
+}
+
+.thread-image-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.thread-image {
+    max-width: 100%;
+    max-height: 500px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    object-fit: contain;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.thread-loading {
+    text-align: center;
+    padding: 40px;
+    color: #aaa
+}
+
+.dark .thread-card {
+    color: white;
+    box-shadow: 0px 0px 0px 3px rgba(190,0,0,1);
+}
