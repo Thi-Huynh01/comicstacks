@@ -10,12 +10,11 @@ Adding comics to a list <br>
 
 # 🤖 Tech Stack <br>
 **Frontend:** React + Vite, React Router, Material UI <br>
-**Backend:** Django, Django REST Framework <br>
+**Backend:** Django, Django REST Framework, AWS S3 <br>
 **Database:** SQLite <br>
 **Auth:** Django Authentication (Token-based) <br>
 **Styling:** CSS + MUI (light/dark mode) <br>
 
 # 👾 Potential Future Tech Stack
 PostgreSQL <br>
-AWS S3 <br>
 Railway (Database Deployment)<br>
