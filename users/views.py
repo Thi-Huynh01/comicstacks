@@ -1,13 +1,18 @@
 from .models import Profile, Review, UserComic
-from .serializers import ProfileSerializer, ReviewSerializer, UserComicSerializer
+from .serializers import ProfileSerializer, ReviewSerializer, UserComicSerializer, PublicUserSerializer
 from rest_framework import viewsets, permissions, generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.generics import RetrieveAPIView
 from comics.models import Comic
+from django.contrib.auth import get_user_model
 
 # Create your views here.
+
+User = get_user_model()
+
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
@@ -65,3 +70,13 @@ class UserComicViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class PublicProfileView(RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = PublicUserSerializer
+    lookup_field = "id"
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context["request"] = self.request
+        return context

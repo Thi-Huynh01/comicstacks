@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProfileViewSet, ReviewViewSet, AllReviewsListView, UserComicViewSet, MeView
+from .views import ProfileViewSet, ReviewViewSet, AllReviewsListView, UserComicViewSet, MeView, PublicProfileView
 from rest_framework.routers import DefaultRouter
 from comics.views import ComicViewSet
 from rest_framework_nested import routers
@@ -21,5 +21,6 @@ urlpatterns = (
     [
         path('reviews/', AllReviewsListView.as_view(), name='all-reviews'),
         path('me/', MeView.as_view(), name="profile-me"),
+        path("users/<int:id>/", PublicProfileView.as_view()),
     ]
 )

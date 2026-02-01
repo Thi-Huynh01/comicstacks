@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'authentication',
     'comics',
     'forums',
+    'social',
     'corsheaders',
     'storages',
 ]
